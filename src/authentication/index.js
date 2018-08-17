@@ -71,7 +71,7 @@ function Authentication(auth0, options) {
   this.baseOptions._sendTelemetry =
     this.baseOptions._sendTelemetry === false ? this.baseOptions._sendTelemetry : true;
 
-  this.baseOptions.rootUrl = 'https://' + this.baseOptions.domain;
+  this.baseOptions.rootUrl = this.baseOptions.domain;
 
   this.request = new RequestBuilder(this.baseOptions);
 
@@ -158,7 +158,7 @@ Authentication.prototype.buildAuthorizeUrl = function(options) {
 
   qString = qs.stringify(params);
 
-  return urljoin(this.baseOptions.rootUrl, 'authorize', '?' + qString);
+  return urljoin(this.baseOptions.rootUrl, 'oauth/authorize', '?' + qString);
 };
 
 /**
