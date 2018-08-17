@@ -453,7 +453,7 @@ Authentication.prototype.userInfo = function(accessToken, cb) {
   assert.check(accessToken, { type: 'string', message: 'accessToken parameter is not valid' });
   assert.check(cb, { type: 'function', message: 'cb parameter is not valid' });
 
-  url = urljoin(this.baseOptions.rootUrl, 'userinfo');
+  url = urljoin(this.baseOptions.rootUrl, 'me');
 
   return this.request
     .get(url)
